@@ -1,0 +1,27 @@
+class Father{
+	Father(){
+		super();
+		show();
+	}
+	void show() {
+		System.out.println("Father show");
+	}
+}
+
+class Son extends Father{
+	int num=8;
+	Son(){
+    super();//父子类初始化时，子类的成员变量需要等父类初始化完后再进行本类初始化赋值。
+		System.out.println("Son cons run..."+num);
+	}
+	void show() {
+		System.out.println("Son show..."+num);
+	}
+}
+
+class Demo{
+	public static void main(String[] args) {
+		Son s=new Son();
+		s.show();
+	}
+}
