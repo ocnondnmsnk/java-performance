@@ -1,11 +1,12 @@
-interface USB{
+interface USB//expose rule
+{
 	public void open();
 	public void close();
 }
 
 class BookPC{
 	public static void main(String[] args) {
-		useUSB(new UPan());
+		useUSB(new UPan());//Expended Function
 	}
 	public static void useUSB(USB u)// 接口类型的引用,用于接收接口的子类对象
   {
@@ -14,6 +15,7 @@ class BookPC{
 	}
 }
 
+//realize rule
 class UPan implements USB{
 	public void open() {
 		System.out.println("upan open");
