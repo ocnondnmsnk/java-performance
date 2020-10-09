@@ -1,0 +1,28 @@
+class Father{
+	int num=3;
+	void show() {
+		System.out.println("Father show");
+	}
+	static void method() {
+		System.out.println("static Father show");
+	}
+}
+
+class Son extends Father{
+	int num=4;
+	void show() {
+		System.out.println("son show");
+	}
+	static void method() {
+		System.out.println("static zi show");
+	}
+}
+
+class Demo{
+	public static void main(String[] args) {
+		Father s=new Son();
+		s.show();
+		s.method();
+		System.out.println(s.num);
+	}
+}
