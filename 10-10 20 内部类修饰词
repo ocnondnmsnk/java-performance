@@ -1,0 +1,34 @@
+class Outer{
+    private static int num=3;
+    static class Inner{
+        void show(){
+            System.out.println("show run"+num);
+        }
+        static void function()//如果内部类中定义了静态成员，该内部类也必须是静态的
+        {
+            System.out.println("function run"+num);
+        }
+    }
+    public void method(){
+        Inner in=new Inner();
+        in.show();
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        //Outer out=new Outer();
+        //out.method();
+        
+        //直接方位外部类中内部类的成员
+        //Outer.Inner in=new Outer().new Inner();
+        //in.show();
+        
+        //内部类是静态
+        Outer.Inner in=new Outer.Inner();
+        in.show();
+        
+        //内部类是静态，成员也是静态
+        Outer.Inner.function();
+    }
+}
