@@ -1,0 +1,21 @@
+//内部类在局步位置中只能访问被final修饰的局部变量
+
+class Outer{
+    int num=3;
+    Object method(){
+        final int x=4;
+        class Inner{
+            void show(){
+                System.out.println("show..."+num);
+            }
+        }
+        Object in=new Inner();
+        return in;
+    }
+}
+class Main{
+    public static void main (String[] args) {
+        Outer out=new Outer();
+        Object obj=out.method();
+    }
+}
