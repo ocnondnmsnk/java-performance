@@ -1,0 +1,24 @@
+//内部类必须继承或实现一个外部类或接口
+
+abstract class Demo{
+    abstract void show();
+}
+
+class Outer{
+    int num=4;
+    public void method(){
+        new Demo()//匿名内部类
+        {
+            void show(){
+                System.out.println("show..."+num);
+            }
+        }.show();    
+    }
+}
+
+
+class Main{
+     public static void main (String[] args) {
+        new Outer().method();
+    }
+}
