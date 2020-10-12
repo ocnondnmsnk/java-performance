@@ -1,0 +1,35 @@
+//显式初始化->构造代码块初始化
+
+class Father{
+	int num=9;
+	{
+		System.out.println("Father");
+	}
+	Father(){
+		show();
+	}
+	void show() //被覆盖,运行子类
+  {
+		System.out.println("Father show..."+num);
+	}
+}
+
+class Son extends Father{
+	int num=8;
+	{
+		System.out.println("Son");
+	}
+	Son(){
+		super();
+		show();
+	}
+	void show() {
+		System.out.println("Son show..."+num);
+	}
+}
+
+class Main{
+	public static void main(String[] args) {
+		new Son();
+	}
+}
