@@ -1,0 +1,34 @@
+//throw是语句抛出一个异常,throws是方法可能抛出异常的声明。
+
+class fushuIndexException extends Exception{
+		fushuIndexException(){
+		}
+		fushuIndexException(String msg)//直接调用父类
+    {
+			super(msg);
+		}
+	}
+
+class Demo{
+	public int method(int[] arr,int index) throws fushuIndexException {
+		if(arr==null) {
+			throw new NullPointerException("cant be null");
+		}
+		if(index>=arr.length) {
+			throw new ArrayIndexOutOfBoundsException("index out of range");
+		}
+		if(index<0) {
+			throw new fushuIndexException("negative index");
+		}
+		return arr[index];
+	}
+}
+
+class ExceptionDemo{
+	public static void main(String[] args) throws fushuIndexException{
+		int[] arr=new int[3];
+		Demo d=new Demo();
+		int num=d.method(arr, -3);
+		System.out.println("num="+num);
+	}
+}
